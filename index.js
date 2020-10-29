@@ -20,7 +20,13 @@ app.get("/blog/:artigo?", function (req, res) {
 });
 
 app.get("/canal/youtube", function (req, res) {
-    res.send("<h1>Bem ao meu canal no youtube</h1>");
+    var canal = req.query["canal"];
+    
+    if(canal){
+        res.send(canal);
+    }else{
+        res.send("Nenhum canal fornecido!");
+    }
 });
 app.get("/ola/:nome/:empresa", function (req, res) {
     // REQ => DADOS ENCIADOS PELO USUARIO
